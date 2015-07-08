@@ -1,0 +1,39 @@
+body {
+	background-image: url(/img/mariopipesbackground.jpeg);
+	background-repeat: repeat;
+}
+
+#gameBox {
+	width: 600px;
+	height: 500px;
+	margin: auto;
+	position: absolute;		
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+.molehole {
+	width: 175px;
+	height: 150px;
+	background-image: url(/img/pipe.jpeg);
+	margin-top: 15px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	float: left;
+}
+.active {
+	background-image: url(/img/mariopipes.png);
+}
+.wrong {
+	background-image: url(/img/youlose.jpg);
+}
+#title {
+	color: orange;
+	font-family: Helvetica, Verdana, sans-serif;
+}
+#headbox {
+	width: 450px;
+	height: 70px;
+	background-color: black;
+	margin: auto;
+	position: relative;
+}
