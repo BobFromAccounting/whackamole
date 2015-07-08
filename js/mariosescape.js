@@ -13,10 +13,15 @@ $(".molehole").click(function (event) {
 	} else {
 		highscore -= 10;
 		$('#score').text("Score: " + highscore);
-		clearInterval(gameLoop);
 		animateWrongClick(moleholeClicked)
-		gameLoop = setInterval(marioTravels, 1000)
+		// clearInterval(gameLoop);
+		// gameLoop = setInterval(marioTravels, 1000)
 	}
+});
+
+$('#play').click(function (e) {
+	e.preventDefault();
+	gameLoop = setInterval(marioTravels, 1000);
 });
 
 function animateMario (id) {
@@ -28,7 +33,6 @@ function animateMario (id) {
 
 function animateWrongClick (id) {
 	$('#' + id).addClass('wrong');
-	var interval = setInterval
 	setTimeout(function () {
 		$('#' + id).removeClass('wrong');
 	}, 250);
@@ -41,8 +45,3 @@ function marioTravels () {
 	var id = squareToAnimate.getAttribute('id');
 	animateMario(id);
 }
-
-$('#play').click(function (e) {
-	e.preventDefault();
-	gameLoop = setInterval(marioTravels, 1000);
-});
