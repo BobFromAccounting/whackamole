@@ -11,8 +11,14 @@
 	<link rel="stylesheet" type="text/css" href="/css/mariosescape.css">
 </head>
 <body>
+	<audio id="theme" src="/audio/theme.mp3" type="audio/mpeg"></audio>
+	<audio id="acheivement" src="/audio/powerup.wav" type="audio/wav"></audio>
+	<audio id="hit" src="/audio/pipe.wav" type="audio/wav"></audio>
+	<audio id="miss" src="/audio/miss.wav" type="audio/wav"></audio>
+	<audio id="death" src="/audio/death.wav" type="audio/wav"></audio>
 	<div class="container" id="headbox">
 		<h1 class="text-uppercase" id="title">Mario's Escape Plan</h1>
+		<button type="button" class="btn btn-primary btn-lg btn-block" id="lives">Lives: 3	</button>
 	</div>
 	<div class="container" id="gameBox">
 		<div class="molehole" id="pipeOne"></div>
@@ -25,7 +31,7 @@
 		<div class="molehole" id="PipeEight"></div>
 		<div class="molehole" id="PipeNine"></div>
 		<button type="button" class="btn btn-success btn-lg btn-block" id="play">Play</button>
-		<button type="button" class="btn btn-primary btn-lg btn-block" id="score">Score: 0</button>
+		<button type="button" class="btn btn-primary btn-lg btn-block" id="score">Score: 0	</button>
 	</div>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script type="text/javascript" src="/js/mariosescape.js"></script>

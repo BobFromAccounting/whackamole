@@ -27,13 +27,13 @@ body {
 	background-image: url(/img/youlose.jpg);
 }
 #title {
-	color: orange;
+	color: red;
 	font-family: Helvetica, Verdana, sans-serif;
 }
 #headbox {
 	width: 450px;
 	height: 70px;
-	background-color: black;
+	background-color: limegreen;
 	margin: auto;
 	position: relative;
 }
