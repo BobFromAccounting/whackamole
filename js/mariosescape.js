@@ -106,7 +106,7 @@ function animateWrongClick (id) {
 
 function marioTravels () {
 	var squares = $('.molehole');
-	var random = Math.floor(Math.random() * 4);
+	var random = Math.floor(Math.random() * 9);
 	var squareToAnimate = squares[random];
 	var id = squareToAnimate.getAttribute('id');
 	animateMario(id);
