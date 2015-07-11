@@ -9,6 +9,7 @@ var highscore = 0;
 var enableClicks = false;
 var livesRemaining = 3;
 var interval = 1000;
+var warning = false;
 var keystrokes = [], konamiKeys = "38,38,40,40,37,39,37,39,66,65,13";
 
 // play button establishes a start mechanic and plays the theme audio.
@@ -42,8 +43,17 @@ $(".molehole").click(function (event) {
 	function failure () {
 		highscore -= 10;
 		$('#score').text("Score: " + highscore);
-		$("#lives").text("Lives: " + livesRemaining)
 		animateWrongClick(moleholeClicked)
+	}
+
+	function restart () {
+			var tryAgain = confirm("Help Mario escape again?");
+			if (tryAgain) {
+				enableClicks = true;
+				gameLoop = true;
+				document.getElementById("theme").play();
+				gameLoopLogic();
+			}
 	}
 	
 	if (enableClicks == true) {
@@ -53,6 +63,7 @@ $(".molehole").click(function (event) {
 		} else {
 			failure();
 			livesRemaining -= 1;
+			$("#lives").text("Lives: " + livesRemaining)
 			document.getElementById("miss").play();
 		}
 		if ((highscore % 100) == 0) {
@@ -61,11 +72,19 @@ $(".molehole").click(function (event) {
 		if (highscore === 500) {
 			gameOver();
 			alert("Mario has successfully escaped!")
+		} else if (livesRemaining === 0 && warning === false) {
+			alert("Oh, no! You have one last chance! Better make it count!");
+			warning = true;
 		} else if (livesRemaining < 0) {
+			$("#lives").text("Lives: " + (livesRemaining + 1));
 			document.getElementById("theme").pause();
 			document.getElementById("death").play();
 			gameOver();
-			alert("Bowser WON?!?! Now he is eating the Mushroom Kingdom!")
+			alert("Bowser WON?!?!");
+			alert("And...now he's eating the Mushroom Kingdom...");
+			restart();
+			$("#score").text("Score: " + highscore);
+			$("#lives").text("Lives: " + livesRemaining);
 		}
 	}
 });
@@ -73,16 +92,19 @@ $(".molehole").click(function (event) {
 // establishes game over comparison and game loop logic.
 
 function gameOver () {
-			gameLoop = false;
-			enableClicks = false;
-			highscore = 0;
-			gameLoopLogic();
-			location.reload(true);	
+	gameLoop = false;
+	isLooping;
+	highscore = 0;
+	enableClicks = false;
+	livesRemaining = 3;
+	interval = 1000;
+	warning = false;
+	gameLoopLogic();	
 }
 
 function gameLoopLogic () {
 	if (gameLoop === true) {
-		isLooping = setInterval(marioTravels, 1000);	
+		isLooping = setInterval(marioTravels, interval);	
 	} else {
 		clearInterval(isLooping);
 	}
